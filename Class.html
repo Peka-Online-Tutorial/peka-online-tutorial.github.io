@@ -249,7 +249,148 @@
     background-image: url("img.12.png");
 }
 
+*{
+    box-sizing:border-box;
+}
 
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+/* Images */
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* Tablets */
+@media (max-width:992px){
+
+    .main{
+        flex-direction:column;
+        gap:30px;
+        padding:20px;
+        margin:20px auto;
+    }
+
+    .left-panel,
+    .right-panel{
+        width:100%;
+    }
+
+    .grade-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .option-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* Mobile Phones */
+@media (max-width:768px){
+
+    .header{
+        padding:20px;
+        text-align:center;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .header p{
+        font-size:15px;
+    }
+
+    .main{
+        padding:15px;
+        margin:15px auto;
+        gap:20px;
+    }
+
+    .left-panel,
+    .right-panel{
+        width:100%;
+    }
+
+    .right-panel{
+        padding:20px;
+    }
+
+    .section-title{
+        text-align:center;
+        font-size:22px;
+    }
+
+    .grade-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .card h3{
+        font-size:22px;
+    }
+
+    .option-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .option-card{
+        padding:18px;
+        font-size:17px;
+    }
+
+    .panel-image{
+        height:140px;
+    }
+
+    .panel-image h2{
+        font-size:20px;
+    }
+
+}
+
+/* Very Small Phones */
+@media (max-width:480px){
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .header p{
+        font-size:14px;
+    }
+
+    .main{
+        padding:10px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .option-card{
+        padding:15px;
+        font-size:16px;
+    }
+
+    .panel-image{
+        height:120px;
+    }
+
+}
 </style>
 </head>
 <body>
@@ -458,42 +599,96 @@ const data = {
 let selectedGrade = null;
 let selectedSubject = null;
 
+// =========================
+// GRADE SELECTION (TOGGLE)
+// =========================
 function selectGrade(card, grade) {
-  selectedGrade = grade;
 
-  document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+  const subjectSection = document.getElementById("subjectSection");
+  const chapterSection = document.getElementById("chapterSection");
+
+  // If same grade is clicked again → hide everything
+  if (
+    selectedGrade === grade &&
+    !subjectSection.classList.contains("hidden")
+  ) {
+
+    subjectSection.classList.add("hidden");
+    chapterSection.classList.add("hidden");
+
+    card.classList.remove("active");
+
+    selectedGrade = null;
+    selectedSubject = null;
+
+    return;
+  }
+
+  // Activate new grade
+  selectedGrade = grade;
+  selectedSubject = null;
+
+  // Remove active from all cards
+  document.querySelectorAll(".card").forEach(c =>
+    c.classList.remove("active")
+  );
+
+  // Activate clicked card
   card.classList.add("active");
 
-  const subjectGrid = document.querySelector("#subjectSection .option-grid");
+  // Build subject buttons
+  const subjectGrid =
+    document.querySelector("#subjectSection .option-grid");
+
   subjectGrid.innerHTML = "";
 
   Object.keys(data[grade]).forEach(subject => {
+
     const btn = document.createElement("div");
+
     btn.className = "option-card";
     btn.textContent = subject;
+
     btn.onclick = () => selectSubject(subject);
+
     subjectGrid.appendChild(btn);
+
   });
 
+  // Update title
   document.getElementById("subjectTitle").innerText =
     `Grade ${grade} – Select Subject`;
 
-  document.getElementById("subjectSection").classList.remove("hidden");
-  document.getElementById("chapterSection").classList.add("hidden");
+  // Show subjects
+  subjectSection.classList.remove("hidden");
+
+  // Hide chapters until a subject is chosen
+  chapterSection.classList.add("hidden");
 }
 
+// =========================
+// SUBJECT SELECTION
+// =========================
 function selectSubject(subject) {
+
   selectedSubject = subject;
 
-  const chapterGrid = document.querySelector("#chapterSection .option-grid");
+  const chapterGrid =
+    document.querySelector("#chapterSection .option-grid");
+
   chapterGrid.innerHTML = "";
 
   data[selectedGrade][subject].forEach(chapter => {
+
     const btn = document.createElement("div");
+
     btn.className = "option-card";
     btn.textContent = chapter.name;
+
     btn.onclick = () => openChapter(chapter.page);
+
     chapterGrid.appendChild(btn);
+
   });
 
   document.getElementById("chapterTitle").innerText =
@@ -502,21 +697,39 @@ function selectSubject(subject) {
   document.getElementById("chapterSection").classList.remove("hidden");
 }
 
+// =========================
+// OPEN CHAPTER PAGE
+// =========================
 function openChapter(page) {
-  // SAVE CURRENT STATE
-  sessionStorage.setItem("examState", JSON.stringify({
-    grade: selectedGrade,
-    subject: selectedSubject
-  }));
 
-  // GO TO CHAPTER PAGE
+  // Save current state
+  sessionStorage.setItem(
+    "examState",
+    JSON.stringify({
+      grade: selectedGrade,
+      subject: selectedSubject
+    })
+  );
+
+  // Go to question page
   window.location.href = page;
 }
 
+// =========================
+// RESTORE STATE AFTER RETURN
+// =========================
 window.addEventListener("load", () => {
+
   const savedState = sessionStorage.getItem("examState");
 
-  if (!savedState) return;
+  // First time opening → only grades visible
+  if (!savedState) {
+
+    document.getElementById("subjectSection").classList.add("hidden");
+    document.getElementById("chapterSection").classList.add("hidden");
+
+    return;
+  }
 
   const { grade, subject } = JSON.parse(savedState);
 
@@ -525,21 +738,30 @@ window.addEventListener("load", () => {
 
   // Highlight grade card
   document.querySelectorAll(".card").forEach(card => {
+
     if (card.innerText.includes(grade)) {
       card.classList.add("active");
     }
+
   });
 
-  // Rebuild subject section
-  const subjectGrid = document.querySelector("#subjectSection .option-grid");
+  // Rebuild subjects
+  const subjectGrid =
+    document.querySelector("#subjectSection .option-grid");
+
   subjectGrid.innerHTML = "";
 
   Object.keys(data[grade]).forEach(sub => {
+
     const btn = document.createElement("div");
+
     btn.className = "option-card";
     btn.textContent = sub;
+
     btn.onclick = () => selectSubject(sub);
+
     subjectGrid.appendChild(btn);
+
   });
 
   document.getElementById("subjectTitle").innerText =
@@ -547,8 +769,9 @@ window.addEventListener("load", () => {
 
   document.getElementById("subjectSection").classList.remove("hidden");
 
-  // Auto-open selected subject & chapters
+  // Reopen the previously selected subject
   selectSubject(subject);
+
 });
 
 </script>
