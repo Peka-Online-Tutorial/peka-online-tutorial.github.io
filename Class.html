@@ -79,15 +79,25 @@
         gap: 20px;
     }
 
-    .card {
-        background: white;
-        border-radius: 16px;
-        padding: 30px;
-        cursor: pointer;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
+    .card{
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 140px;
+}
+
+.card h3{
+    margin: 0;
+}
 
     .card:hover {
         transform: translateY(-6px);
