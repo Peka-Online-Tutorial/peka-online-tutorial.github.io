@@ -24,6 +24,7 @@
             margin-bottom: 20px;
             font-size: 2.1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-radius: 50px;
         }
 
         /* Flex Container for Image and Buttons */
@@ -35,6 +36,7 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            
         }
 
         .image-side { flex: 1; min-width:300px;  }
@@ -46,6 +48,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr; /* 2x2 grid */
             gap: 20px;
+            align-items: right;
         }
 
         /* Call to Action Text */
@@ -75,14 +78,25 @@
 
         /* Footer Banner */
         .footer-banner {
-            margin-top: 40px;
-            background: #00bcd4;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border-radius: 50px;
-            font-size: 2.1rem;
-            border: 1px solid #00acc1;
+           margin-top: 40px;
+    background: #00bcd4;
+    color: white;
+    text-align: center;
+    
+    /* Change padding to be smaller if you want a tighter fit */
+    padding: 15px 30px; 
+    
+    /* This makes the box width fit the text */
+    width: fit-content;
+    
+    /* This centers the box on the page */
+    margin-left: auto;
+    margin-right: auto;
+    
+    border-radius: 50px;
+    font-size: 2.1rem;
+    border: 1px solid #00acc1;
+            
         }
 
         /* Mobile Adjustments */

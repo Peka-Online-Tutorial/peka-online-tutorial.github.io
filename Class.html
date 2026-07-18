@@ -184,12 +184,26 @@
     }
 
     .card {
-    
+    /* Existing properties */
+    background: white;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: rgb(58, 14, 14);
-    position: relative;
+
+    /* CHANGE THESE TWO PROPERTIES TO DECREASE HEIGHT */
+    min-height: 80px;   /* Lower this value to make it shorter */
+    padding: 10px;      /* Lower this value to reduce internal vertical spacing */
 }
 
 /* Dark overlay for text readability */
