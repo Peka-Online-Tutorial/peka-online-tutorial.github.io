@@ -3,18 +3,367 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chemistry Unit One – MCQ Quiz</title>
+<title>Physics Unit 3 – MCQ Quiz</title>
 
 
   <link rel="stylesheet" href="Style.css" />  
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
+
 <div class="quiz-container">
-<h1>⚡ Comming Soon.... ⚡</h1>
+<h1>⚡ Physics Chapter 3 ⚡</h1>
 <div id="quiz"></div>
 </div>
+<script>
+  const questions = [
+    {
+      q: " 1. What is the continuous change in position of a moving body, with respect to some frame of reference ? ", 
+      options: [ "Distance", "Displacement", " Motion", "Velocity"  ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+
+    }, 
+    {
+      q: "2. What is the motion of a body with steady speed in a straight line ", //extreme g-9&10 p.25
+      options:[  "Uniform motion", "Displacement", " Acceleration", "Velocity"  ],
+      answer: 0 ,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "3. What is the shortest path length covered by a body between its starting and end points ",//extreme g-9&10 p.25
+      options:[ "Uniform motion", "Displacement", " Acceleration", "Velocity"],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "4. Under what condition will the distance covered by a body be equal to its displacement ",//extreme g-9&10 p.25
+      options:[ "Under non-uniform or accelerated motion", "Under rotational motion", "Under projectile motion","Under uniform motion in a stragnt line"],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "5. If a body is thrown vertically upward to heigh h and returns to its original position. What will be its distance and displacement ", //extreme g-9&10 p.26
+      options:["Distance = h + h = 2h </br> </br> Displacement = h - 0 = h ", "Distance = h - h = 0 </br></br> Displacement = h + h = 2h ","Distance = h + h = 2h  </br> </br> Displacement = h - h = 0 ","Distance = h </br><br/> Displacement = h "],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "6. An Athlet is running around a circular track of radius 100m. After he completes 3 revolutions, What will be his distance and his displacement ", //extreme g-9&10 p.26
+      options:[ " ds = 100 </br></br> s = 100", "ds = 0 </br><br> s = 300", "ds = 0 </br></br> s = 600", "ds = 100 </br></br> s = 600"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "7. Which one of the following is <strong> NOT TRUE <srtong> about distance?>",
+      options:["It is a scaler quantity","It is dependent on the path covered","Is is a length of a journy","It is the shortes distance covered by a body" ],//Grade 9 exercice book      
+      answer:3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "8.An airplane initially ate rest undergo a constant acceleration of 3m/s<sup>2</sup> and coveres a distance of 100m down the runway befpre it lifts off. What is its final velocity before it lifts off? ",//Grade 9 exercice book  
+      options:["<math><msqrt><mi>600</mi></msqrt></math>", "<math><msqrt><mi>400</mi></msqrt></math>", "400", "600"],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "9. Which of the following is true about speed ", //extreme g-9&10 p.28
+      options:[ "Speed is a vector quantity", " Its SI Uint is m/s<sup>2<\sup>,", "It tells how fast a body is moving", "It tells how fast and in which direction is a body is moving"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "10. What is the total distance travelled by a moving body divided by the total time taken  ", //extreme g-9&10 p.28
+      options:["Speed", "Velocity", "Average Velocity", "Average Speed"],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "11.A car started from rest and travlled a distance of 300m. Assuming the acceleration to be uniform, how long does it take to reach a velocity of 20m/s<sup>2</sup> ",//Grade 9 exercice book 
+      options:[],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "12.The velocity of a train is reduced uniformly from 20m/s to 10m/s when travelling a distance of 120m. How far it traveles further before it comes to rest?",//Grade 9 exercice book 
+      options:[],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "13.A train travels from one station to another at a speed of 40km/h and returns to the first station at a speed of 60km/h. What is the average speed of the train. ", //Extreme G11&12 p77 Q10
+      options:["50km/h", "48km/h", "52km/h", "46km/h"],
+      answer:1 ,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "14.A Car trevels along a straight line at a constant speed of 20m/s for a distance d then another distance in the same direction at a constant speed of 36km/hr. What is the average speed for the entire trip? ", //Extreme G11&12 p78 Q13 UEE
+      options:["23km/h","48km/h","54km/h","60km/h"],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "15.The velocity of a car is reduced uniformly from 50m/s to 20m/s when travelling a distance of 300m. What is the acceleration of the car??",//Grade 9 exercice book
+      options:[],
+      answer:  1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "16. A boy walked one third of his journey at a speed of 2 m/s and ran the rest of the journey at 3 m/s. What was the average speed of the boy?", //extreme g-9&10 p.32
+      options:["1.53 m/s", " 2.57 m/s", "3.56 m/s", "4.59 m/s" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "17. The velocity-time graph of a moving object is shown below. How fas does the pbject move in the first two seconds? ", //Extreme G11&12 p78 Q13 UEE 2001
+      options:["13m","-26m" , "26m", "-13m"],
+      answer: 2,
+      video: "" 
+    },
+    {
+      q: "18. If a body starts from a point and returns back to same point, Then its",
+      options:["average velocity is zero, but not average speed","average speed is zero, but not average velocity","both average speed and velocity are non zero","average apeed and velocity depends upon the path"], //Extreme G11&12 119 Q129
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "19. During a rainny season, you saw a flash of lightning. Three and a half seconds later, You heard the thunder. If the speed of the sound in air is about 340 m/s, How far away was the lightning produced? ", //extreme g-9&10 p.33
+       options:["1190m", "2290m", "950m", "1500m" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "20. On applying brakes, an automobile stops after 5 seconds covering 25m with uniform retarded motion. The initial speed of the automobile is ",//Extreme G11&12 142 Q222
+      options: ["5m/s","10m/s", "15m/s", "20m/s"],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "21. A body is thrown upwards and reaches its maximum height. At that position ",
+      options:["its acceleration is minimum","its velocity is zero and its acceleration is also zero","its velocity is zero but its acceleration is maximum","its velocity is zero and its acceleration is acceleration due to gravity"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "22.A car travels along a u shaped curve for a distance of 400m in 20sec. Its final location however, is only 40m from the startingpoint. What is its average speed? ", //extreme g-9&10 p.34
+      options:["10m", "25m", "20", "40m" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "23. A  ball released from a certain height falls 5m in one sec. In 4 sec, it falls through ",//extreme g-11&12 p.129
+      options:["80m","40m","1.25m","20m"],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "24. A ballon going upwards with a velocity of 12m/s releases a packet when it is at a height of 65m from the ground. How much time the packet will take to reach the ground? ",//extreme g-11&12 p.138
+      options: ["5sec","6sec","7sec","8sec"],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "24. A monky in a tree 20m high drops a coconut directly above your head as you run with a speed of 1.5m/s beneath the tree. How far behind you does the coconut hit the ground ", //Extreme G11&12 142 Q230
+      options:["2m","3m","4m","5m" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "25. Which of the following is true about speed and velocity ",//extreme g-9&10 p.30 
+      options:[ "A body can have average speed without having average </n> velocity", " Speed of a given body can be negative but Velocity can't be negative","If the displacement of a body is 0 the average velocity can be different from 0","A deacreasing speed can be considered as negative"],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "26. Which of the following statments is <strong> NOT TRUE </Strong>",//Extreme G11&12 p158 Note
+      options:["instantaneous velocity of a body be ever be greater ot less that the average velocity of the body","velocity of a body reverse direction when the body still have constant acceleration","A ball thrown upward into the air and another ball droped downward from the same height both can have same acceleration","If the average velocity  equals zero for some time interval we can say that instantaneous velocity is also zero at some time in this interval"],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "27. A body starting from rest traveles a distance x in the first 2 second and a distance y next 2 seconds, then",//Extreme G11&12 p136 Q.205
+      options:["y = 2x","y = 3x","y = 4x","y = x" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "28. A body standing on the edge of 180m cliff dropped a stone and one second later he threw anpther stone downward from the same height. If the stones touch the ground at the same time. What is the final velocities of the second stone ",   //Extreme G11&12 p160 Q.22
+      options:["61m/s","55m/s","67m/s","51m/s" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "29. What is the distance travelled by a moving body divided by time taken ",//extreme g-9&10 p.28
+      options:["Distance", " Displacement", "Speed", "Velocity"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "31. Under what condition is the average velocity of a body equal to the instantaneous velocity? ",//Extreme G11&12 p.75 Note 
+      options:["When the direction of the body changes","when the body is moving with constant velocity","when the body is in circular motion","when the body is moving in non-constant velocity" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "31. A bullet moving with a speed of 200m/s can penetrate a plank 4cm thick. What should be the speed to penetrate the same plank up to 10cm ? ",//Extreme G11&12 p82 Q.26
+      options:["256m/s","423m/s","316m/s","401m/s" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "32. A ball is dropped to the ground from the top of a tower while another ball B is thrown towards the earth with some initial velocity from same towes. Neglecting air resistance, the acceletation is ", //Extreme G-11&12 p 124 Q.154
+      options:["Same for both balls","greatest for the dropped ball A","greatest for ball b","depends up on the size of A & B" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "33. A taxi driver moving at 10m/s sees a dog walking across a road 32m ahead. If the driver's reaction time is 0.3sec, and the taxi decelerated at 2m/s<sup>2</sup>. Finf the distance the taxi stop from the dog. ",   //Extreme G11&12 p85 Q.36
+      options:["10m","5m","15m","3m" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "34. A student walks 300m East, 400m North and 300m West. What is the distance travelled and the displacement of the student from his starting point? ",//extreme g-9&10 p.27
+      options:["ds = 400m North </br></br> s = 1000", "ds = 300m South </br><br> s = 300m", "ds = 400m North </br></br> s = 700m", "ds = 0 </br></br> s = 600m" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "35. A drunk guy is walking along a staight road. He takes 5 steps forward and 3 steps backward, followed by 5 steps forward and 3 steps backward and so on. Each step is one meter long and takes one second. There is a pit on the road 11m away from the starting pont. The drunk guy will fall into the pit after? ", //extreme g-11&12 p.122
+      options:["21sec","31sec","29sec","37sec" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "36.Which of the following changes when a particle is moving with uniform velocity ", //Extreme G11&12 p119 Q130
+      options:["Position vector","velocity","speed","acceleration" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "37.  A car moves 8km due East and then 6km due North, if it takes 2 hours to cover the the trip what is the speed and the velocity of the car? ",//extreme g-9&10 p.31
+      options:[" Speed = 14 km/hr </br></br> Velocity = 7 km/hr E","Speed = 7 km/hr </br></br> Velocity = 5 km/hr NE", "Speed = 14 km/hr </br></br> Velocity = 7 km/hr SE", "Speed = 7 km/hr </br></br> Velocity = 5 km/hr E" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "38. A railway train 200m long passes over a brodge 600m long. The time taken by the train to cross the bridge with uniform speed of 36km/h is",//extreme g-11&12 p.123
+      options:["2m/s","3m/s", "3.5m/s","2.2m/s" ],
+      answer: 0,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "39. A car treveles a distance of 45m in 3 seconds. What is the speed of the car in km/hr ",//extreme g-9&10 p.31
+      options:["34 km/hr","44 km/hr" ,"54 km/hr" ,"64 km/hr"  ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "40. The velocity of a body at the end of 5sec is 30m/s at the end of 12 sec is 58m/s and at the end of 22sec, it is 98m/s. The body is moving with ",
+      options:["Uniform velocity", "uniform retardation","uniform acceleration","uniform displacement" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "41.  A car is moving towards east  in such a way that its position is 20m at time t = 2 sec and 80m at time t = 60 sec. What is the average velocity of the car during this time interval", //extreme g-9&10 p.32
+      options:[ "5 m/s", "10 m/s", "15 m/s", "25 m/s"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "42. A stone is dropped from the top of a tower 50m high. At the same time, another stone is thrown upwards from the foot of the tower with a velocity of 25m/s. When and where the stones cross each other? ",//Extreme G11&12 p100 Q.86
+      options:[" at t = 2 sec & h = 15m"," at t = 4 sec & h = 20m"," at t = 2 sec & h = 20m"," at t = 4 sec & h = 15m" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "43. A driver moving at a constant speed of 20m/s sees an accident up ahead and hits the brakes. If the car decelerates at a constant rate of -5m/s, How far does the the car go before it comes to stop? ",//Extreme G11&12 p90 Q.55 UEE
+      options:["100","120","40","20" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "44.A boy runs at 10 m/s for 4 sec, Then walks at 8 m/s for 6 sec and rides a bicycle at 20 m/s for 12 sec. What is the average speed of the boy for tr entire trip? ",//extreme g-9&10 p.31
+      options:["1.7 m/s", " 15 m/s" , " 10.5 m/s", " 14.9 m/s" ],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "45. Which of the following is <strong> NOT TRUE </strong> about acceleration? ", //extrean G-11&12 page 78
+      options:["A body is said to be accelerating when it is speeding up","When a body is in uniform motion, its velocity and its acceleration is zero","Deacreasing acceleration is NOT called retardation","An acceleration of 5m/s<sup>2</sup> means that the velocity increases at the rate of 5m/s every second" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "45. A body having uniform acceleration of 10m/s<sup>2</sup> has a velocity of 100m/s. In what time, the velocity will bw doubled? ", //extreme G-11&12 p.156
+      options:["8sec","12sec","10sec","14sec" ],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "46. what is the speed of a body at a given instant of time or particular position? ", //extreme g-9&10 p.29
+      options:[ "Instantaneous speed", "Instantaneous Velocity", "Average speed", "Average Velocity"],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    }, {
+      q: "47.In v-t graph shown below, the distance travelled by the body in 5sec will be ", //Extreme G-11&12 p.145
+      options:["30m", "60m","100m", "160m"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    }, {
+      q:  "48. Which of the following represents an impossible situation?  ", //Extreme G-11&12 p.148
+      options:[ ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "49. During a hard sneeze, your eyes might shut for 0.5 sec. If you are driving a car at 90 km/h, how far does it move during that time? ", //extreme g-9&10 p.33
+      options:["1.5 m/s", " 2.5 m/s", "3.5 m/s", "4.5 m/s" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+     {
+      q: "50. A car moving with a uniform acceleration travelled 24m and 64m in the first two consecutive intervals of 4sec each. What is its initial velocity? ", //Extreme G-11&12 p.141
+      options:["7m/s", "2.5m/s","4m/s","1m/s" ],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "51. Two girls start running straight toward each other from two point 200m apart. One runs with a speed of 2m/s and the other at 3m/s. How close are they to the slowers ones's starting point then they meat? ",//extreme g-9&10 p.33
+       options:["1190m", "2290m", "950m", "1500m" ],
+      options:["20m", "40m", "60m", "80m" ],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "52. A body starts from rest and moves with a uniform acceleration of 10m/s<sup>2</sup> in the first 10sec. During the next 10sec, it moves with uniform velocity. What is the total distance covered by the body? ",  //Extreme G11&12 142 Q231
+      options:["1500m","2000m","2500m","3000m" ],
+      answer: 1,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "53.A moving object increases its velocity uniformly from 20m/s to 40m/s in 2min. What is the displacement of the object during the 2min.  ",//extreme g-9&10 p.34
+      options:["2500m", "3000m", "3600m", "2600m"],
+      answer: 2,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "54. An object moving with uniform acceleration has a velocity of 12m/s in the positive x direction when its x coordinate is 3cm. if its x coordinate 2 sec later is -5cm. What is its acceleration ?", //Extreme G11&12 p89 Q.52 UEE:2004
+      options:["1m","2m","3m","4m" ],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+    {
+      q: "55. Lemma travelled a distance of 200m. He drove at 25km/hr during the first part of the trip and at 15km/hr during the remaining. If the whole trip takes 5hours how long did he travel at 20km/h?",//extreme g-9&10 p.37
+      options:[ "2.25hr", "3.5hrs," ,"4.5hrs", "6.25hrs"],
+      answer: 3,
+      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
+    },
+
+  ]
+</script>
 <script src="quize-engine.js"></script>
 </body>
 </html>
