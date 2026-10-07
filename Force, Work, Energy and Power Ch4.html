@@ -1,206 +1,515 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Grade-9 Physics Unit Four – MCQ Quiz</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade-9 Physics Unit Four – MCQ Quiz</title>
 
+    <link rel="stylesheet" href="Style.css" />
 
-  <link rel="stylesheet" href="Style.css" />  
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h1>⚡ Physics Chapter 4 ⚡</h1>
+      <div id="quiz"></div>
+    </div>
+    <script>
+      const questions = [
+        {
+          q: "1. Which on the following is not an example of contact force?", //Extreme G-9&10 Note p.81
+          options: [
+            "kicking a ball",
+            "stoping a moving object by hand",
+            "opening a door",
+            "Gravitational force",
+          ],
+          answer: 3,
+          video: "https://www.youtube.com/embed/OY6L3b0t8rI",
+        },
+        {
+          q: "2. Which of the following is <strong> NOT TRUE</strong> about non contact force", //Extreme G-9&10 Note p.81
+          options: [
+            "it changes direction of motion when it is applied to a certain body",
+            "magnetic force is one type of non contact force",
+            "it is a force that exerts a push or a pull effect on a body at a distance without touching the body",
+            "It is a force that is transmitted by touching the body while exerting force on the body",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "3. Which Newton's law of motion is known as <strong> the law of inertia </strong> ", //Extreme G-9&10 Note p.81
+          options: [
+            "Newtons's first law of motion",
+            "Newtons's second law of motion",
+            "Newtons's third law of motion",
+            "Newtons's forth law of motion",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "4. What is the tendency of an object to resist changes to its motion ", //Extreme G-9&10 Note p.83
+          options: ["Deformation", "elasticity", "inertia", "uniformity"],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "5. Which of the following statements is correct about Newton's Second law of motion?",
+          options: [
+            "The acceleration of an object is inversely proportional to the applied net force and directly proportional to the mass",
+            "For every action of force there is an equal and opposit reaction of force",
+            "The acceleration of an object is directly proportional to the applied net force and inversely proportional to the mass",
+            "For every action of force there is an equal but same direction reaction of force",
+          ],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "6. If a car is travelling at 120km/h in a straight line, the passengers in the car will be thrown forward when the car suddenly stops. Which Newton's law of motion explains this phenomena", //Extreme G-9&10 Note p.84
+          options: [
+            "law of inertia",
+            "Newtons's second law of motion",
+            "Newtons's third law of motion",
+            "Hooke's law",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "7. Which of the following is <strong>NOT TRUE</strong> about mass",
+          options: [
+            "it is a scaler quantity",
+            "it is the amount of matter contained in a body",
+            "it is a vector quantity",
+            "It is constant everywhere",
+          ], //Extreme G-9&10 Note p.84
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "8. Based on Newton's second law of motion, how force can be expressed mathematically", //Text book Page 70
+          options: [
+            "F = ma",
+            " F = <math><mfrac><mi>m</mi><mi>a</mi></mfrac></math>",
+            "F = ma<sup>2",
+            "F = <math><mfrac><mi>a</mi><mi>m</mi></mfrac></math>",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "9. Which of the following is<strong> TRUE</strong> about weight", //Extreme G-9&10 Note p.88
+          options: [
+            "it is the amount of matter contained in a body",
+            "it is a scaler quantity",
+            "It constant everywhere",
+            "it is the force of gravitational pull of the earth on the object",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "10. When you are in elevator and you are going downward, what kind phenomena you can expreience?", //Extreme G-9&10 Note p.89
+          options: [
+            "the force exerted on your feet by the floor of the elevator(F<sub>N</sub>) will be greater that the gravitational force",
+            " you feel heavier when the elevatior gose down ward because the force exerted on your feet by the floor is greater that the gravitational force",
+            "You feel lighter because the force exerted on your feet by the floor is less that the gravitational force",
+            "you feel weightless because the force exerted on your feet by the floor is equal to 0",
+          ],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "11. When a car stops suddenly, the passenger tend to move forward and when a car makes makes a sharp turn, the passanger tend to slide to one side of the car. Which law of motion perfectly explains this phenomena?",
+          options: [
+            "Newtons's second law of motion",
+            "law of inertia",
+            "Newtons's third law of motion",
+            "Hooke's law",
+          ],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "12. A constant force acts on a 20kg object and increase its velocity from 8m/s to 24m/s in 4 sec. Find the force that is applied to the object.", //Extreme G-9&10 Q.16 p.90
+          options: ["20N", "40N", "60N", "80"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "13. A pick up car of mass 1000kg accelerates at 3m/s<sup>2</sup>. What will be the acceleration of the car if a block of mass 200kg is added to the top of it. Assume the force is constant. ", //Extreme G-9&10 Q.20 p.91
+          options: [
+            "3.5m/s<sup>2</sup>",
+            "2.5m/s<sup>2</sup>",
+            "4m/s<sup>2</sup>",
+            "2m/s<sup>2</sup>",
+          ],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "14. A certain force gives mass m<sub>1</sub> an acceleration of 12m/s<sup>2</sup> and mass m<sub>2</sub> an acceleration of 3.3m/s<sup>2</sup>. What acceleration will this force give to the combined mass? ", //Extreme G-11&12 Q.8 p.168
+          options: [
+            "2.5m/s<sup>2</sup>",
+            "0.5m/s<sup>2</sup>",
+            "1m/s<sup>2</sup>",
+            "2m/s<sup>2</sup>",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "15. Which of the following statement is <strong>NOT TRUE</strong> about laws of motion", //Extreme G-11&12 Notes p.166, 167,168
+          options: [
+            "it is possible to have motion in the absence of force",
+            "the direction of the acceleration is always in the direction of the net force",
+            "inerta is the natural tedency of a body to remain at rest or in motion at a constant velocity",
+            "According to Newton's second law of motion acceleration is directly proportional to the mass of the body",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "16. A car of mass 2000kg starts moving with an acceleration which remains constant for 10 sec. If the car covers a distance of 500m, what is the force applied", //Extreme G-9&10 Q.24 p.92
+          options: ["15KN", "10KN", "20KN", "25KN"],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "17. A force of 8N acts on a 5kg body that was initially at rest. At what time will the body attain a velocity of 24m/s", //Extreme G-9&10 Q.21 p.91
+          options: ["20sec", "13sec", "17sec", "15sec"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "18. What is the resistance force that opposes to the moving body on a rough surfacr", //Extreme G-9&10 Notes p.99
+          options: [
+            "Normal force",
+            "Roughness",
+            "Gravitational force",
+            "Frictional force",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "19. Which of the following expresses the unit of force of newton(N) in terms of mass, length and time from the equation of Newton's second law of motion?", // Quastion note from G-9 text book P.70
+          options: ["gm/s", "gm/s<sup>2", "kgm/s", "kgm/s<sup>2"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "20. Which one of the following statements is <strong>TRUE</strong? about static friction?", //Extreme G-9&10 Notes p.100
+          options: [
+            "it is the friction force between two surfaces that are in contact and in relative motion",
+            "it is the friction force that is occured between a sliding block and the groung on a smooth surface",
+            "it is the friction force between two surfaces that are in contact and trying to move each other but not yet moving",
+            "it is a friction force that is occured between two bodies when slide each other",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "21. Which Newoton's law of motion describes about the force of action reaction?", //SELF
+          options: [
+            "Newtons's second law of motion",
+            "law of inertia",
+            "Newtons's third law of motion",
+            "Hooke's law",
+          ],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "22. Which of the following statement is <strong>TRUE</strong> about Newton's third law of action and reaction?", //Extreme G-11&12 P.175 UEE 2003
+          options: [
+            "they act on the same body",
+            "they are equal in magnitude but need not have the same line of action",
+            "thay act on two different bodies",
+            "they are not equal in magnitude but have the same line of action",
+          ],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "23. Which of the following statement is <strong> NOT TRUE</strong> about frictional force?", //Extreme G-11&12 P.176 note
+          options: [
+            "Kinetic friction is always less than static friction",
+            "Friction doesn't depent on the area of the surface in contact",
+            "friction depends on the nature of the surface in contact that is their roughness or smoothness and the normal force",
+            "if a body is at rest on an inclined surface the force of friction is zero",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "24. What do you call the friction force force between surfaces  that are in relative motion with each other?", //Extreme G-9&10 Notes p.100
+          options: [
+            "Static friction",
+            "Kinetic friction",
+            "limiting friction",
+            "apparent friction",
+          ],
+          answer: 1,
+          video: "",
+        },
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-<div class="quiz-container">
-<h1>⚡ Physics Chapter 4 ⚡</h1>
-<div id="quiz"></div>
-</div>
-<script>
-  const questions = [
-    {  
-      q: "1. Which on the following is not an example of contact force?", //Extreme G-9&10 Note p.81
-      options: ["kicking a ball","stoping a moving object by hand","opening a door","Gravitational force" ],
-      answer: 3,
-      video: "https://www.youtube.com/embed/OY6L3b0t8rI"
-    }, 
-    {
-      q: "2. Which of the following is <strong> NOT TRUE</strong> about non contact force", //Extreme G-9&10 Note p.81
-      options:["it changes direction of motion when it is applied to a certain body","magnetic force is one type of non contact force","it is a force that exerts a push or a pull effect on a body at a distance without touching the body","It is a force that is transmitted by touching the body while exerting force on the body"],
-      answer:3 , 
-      video: ""
-    },
-    {
-      q: "3. Which Newton's law of motion is known as <strong> the law of inertia </strong> ", //Extreme G-9&10 Note p.81
-      options:["Newtons's first law of motion","Newtons's second law of motion","Newtons's third law of motion","Newtons's forth law of motion"],
-      answer:0 , 
-      video: ""
-    },
-    {
-      q: "4. What is the tendency of an object to resist changes to its motion ", //Extreme G-9&10 Note p.83
-      options:["Deformation","elasticity","inertia", "uniformity"],
-      answer:2 , 
-      video: ""
-    },
-    {
-      q: "5. Which of the following statements is correct about Newton's Second law of motion?",
-      options:["The acceleration of an object is inversely proportional to the applied net force and directly proportional to the mass","For every action of force there is an equal and opposit reaction of force","The acceleration of an object is directly proportional to the applied net force and inversely proportional to the mass", "For every action of force there is an equal but same direction reaction of force" ],
-      answer:2 , 
-      video: ""
-    },
-    {
-      q: "6. If a car is travelling at 120km/h in a straight line, the passengers in the car will be thrown forward when the car suddenly stops. Which Newton's law of motion explains this phenomena",//Extreme G-9&10 Note p.84
-      options:["law of inertia","Newtons's second law of motion","Newtons's third law of motion","Hooke's law"],
-      answer:0 , 
-      video: ""
-    },
-    {
-      q: "7. Which of the following is <strong>NOT TRUE</strong> about mass",
-      options:["it is a scaler quantity","it is the amount of matter contained in a body","it is a vector quantity","It is constant everywhere"],//Extreme G-9&10 Note p.84
-      answer:2 , 
-      video: ""
-    },
-    {
-      q: "8. Based on Newton's second law of motion, how force can be expressed mathematically", //Text book Page 70
-      options:["F = ma", " F = <math><mfrac><mi>m</mi><mi>a</mi></mfrac></math>" , "F = ma<sup>2", "F = <math><mfrac><mi>a</mi><mi>m</mi></mfrac></math>"],
-      answer:0 , 
-      video: ""
-    },
-    {
-      q: "9. Which of the following is<strong> TRUE</strong> about weight",//Extreme G-9&10 Note p.88
-      options:["it is the amount of matter contained in a body","it is a scaler quantity","It constant everywhere","it is the force of gravitational pull of the earth on the object"],
-      answer:3 , 
-      video: ""
-    },
-    {
-      q: "10. When you are in elevator and you are going downward, what kind phenomena you can expreience?",//Extreme G-9&10 Note p.89
-      options:["the force exerted on your feet by the floor of the elevator(F<sub>N</sub>) will be greater that the gravitational force"," you feel heavier when the elevatior gose down ward because the force exerted on your feet by the floor is greater that the gravitational force","You feel lighter because the force exerted on your feet by the floor is less that the gravitational force", "you feel weightless because the force exerted on your feet by the floor is equal to 0"],
-      answer:2 , 
-      video: ""
-    },
-    {
-      q: "11. When a car stops suddenly, the passenger tend to move forward and when a car makes makes a sharp turn, the passanger tend to slide to one side of the car. Which law of motion perfectly explains this phenomena?",
-      options:["Newtons's second law of motion","law of inertia","Newtons's third law of motion","Hooke's law"],
-      answer:1 , 
-      video: ""
-    },
-    {
-      q: "12. A constant force acts on a 20kg object and increase its velocity from 8m/s to 24m/s in 4 sec. Find the force that is applied to the object.",//Extreme G-9&10 Q.16 p.90
-      options:["20N","40N","60N","80" ],
-      answer:3 , 
-      video: ""
-    },
-    {
-      q: "13. A pick up car of mass 1000kg accelerates at 3m/s<sup>2</sup>. What will be the acceleration of the car if a block of mass 200kg is added to the top of it. Assume the force is constant. ",//Extreme G-9&10 Q.20 p.91
-      options:["3.5m/s<sup>2</sup>","2.5m/s<sup>2</sup>","4m/s<sup>2</sup>","2m/s<sup>2</sup>"],
-      answer:1 , 
-      video: ""
-    },
-    {
-      q: "14. A certain force gives mass m<sub>1</sub> an acceleration of 12m/s<sup>2</sup> and mass m<sub>2</sub> an acceleration of 3.3m/s<sup>2</sup>. What acceleration will this force give to the combined mass? ",//Extreme G-11&12 Q.8 p.168
-      options:["2.5m/s<sup>2</sup>","0.5m/s<sup>2</sup>","1m/s<sup>2</sup>","2m/s<sup>2</sup>"],
-      answer:0 , 
-      video: ""
-    },
-    {
-      q: "15. Which of the following statement is <strong>NOT TRUE</strong> about laws of motion",//Extreme G-11&12 Notes p.166, 167,168
-      options:["it is possible to have motion in the absence of force","the direction of the acceleration is always in the direction of the net force","inerta is the natural tedency of a body to remain at rest or in motion at a constant velocity","According to Newton's second law of motion acceleration is directly proportional to the mass of the body"],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "16. A car of mass 2000kg starts moving with an acceleration which remains constant for 10 sec. If the car covers a distance of 500m, what is the force applied",//Extreme G-9&10 Q.24 p.92
-      options:["15KN","10KN","20KN","25KN"],
-      answer:2 , 
-      video: ""
-    },
-     {
-      q: "17. A force of 8N acts on a 5kg body that was initially at rest. At what time will the body attain a velocity of 24m/s",//Extreme G-9&10 Q.21 p.91
-      options:["20sec","13sec","17sec","15sec"],
-      answer:3 , 
-      video: ""
-    },
-     {
-      q: "18. What is the resistance force that opposes to the moving body on a rough surfacr",//Extreme G-9&10 Notes p.99
-      options:["Normal force","Roughness","Gravitational force", "Frictional force"],
-      answer:3 , 
-      video: ""
-    },
-     {
-      q: "19. Which of the following expresses the unit of force of newton(N) in terms of mass, length and time from the equation of Newton's second law of motion?", // Quastion note from G-9 text book P.70
-      options:["gm/s","gm/s<sup>2","kgm/s","kgm/s<sup>2"],
-      answer:3 , 
-      video: ""
-    },
-     {
-      q: "20. Which one of the following statements is <strong>TRUE</strong? about static friction?",//Extreme G-9&10 Notes p.100
-      options:["it is the friction force between two surfaces that are in contact and in relative motion","it is the friction force that is occured between a sliding block and the groung on a smooth surface","it is the friction force between two surfaces that are in contact and trying to move each other but not yet moving","it is a friction force that is occured between two bodies when slide each other"],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "21. Which Newoton's law of motion describes about the force of action reaction?", //SELF
-      options:["Newtons's second law of motion","law of inertia","Newtons's third law of motion","Hooke's law"],
-      answer:2 , 
-      video: ""
-    },
-     {
-      q: "22. Which of the following statement is <strong>TRUE</strong> about Newton's third law of action and reaction?", //Extreme G-11&12 P.175 UEE 2003
-      options:["they act on the same body","they are equal in magnitude but need not have the same line of action","thay act on two different bodies","they are not equal in magnitude but have the same line of action"],
-      answer:2 , 
-      video: ""
-    },
-     {
-      q: "23. Which of the following statement is <strong> NOT TRUE</strong> about frictional force?",//Extreme G-11&12 P.176 note
-      options:["Kinetic friction is always less than static friction","Friction doesn't depent on the area of the surface in contact","friction depends on the nature of the surface in contact that is their roughness or smoothness and the normal force","if a body is at rest on an inclined surface the force of friction is zero"],
-      answer:3 , 
-      video: ""
-    },
-     {
-      q: "24. What do you call the friction force force between surfaces  that are in relative motion with each other?",//Extreme G-9&10 Notes p.100
-      options:["Static friction","Kinetic friction","limiting friction","apparent friction"],
-      answer:1 , 
-      video: ""
-    },
-    
-     {
-      q: "25. A body of mass 100g that was originally at rest is acted on by a force of magnitude 0.1N. What is the magnitude of the velocity of the body after 10 seconds?",//Extreme G-9&10 P.119 Q.107
-      options:["0.01m/s","10m/s","100m/s","0.1m/s"],
-      answer:1 , 
-      video: ""
-    },
-     {
-      q: "26",
-      options:[],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "27",
-      options:[],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "28",
-      options:[],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "29",
-      options:[],
-      answer:0 , 
-      video: ""
-    },
-     {
-      q: "30",
-      options:[],
-      answer:0 , 
-      video: ""
-    },
+        {
+          q: "25. A body of mass 100g that was originally at rest is acted on by a force of magnitude 0.1N. What is the magnitude of the velocity of the body after 10 seconds?", //Extreme G-9&10 P.119 Q.107
+          options: ["0.01m/s", "10m/s", "100m/s", "0.1m/s"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "26. Consider the deflating ballon, which of the physics laws best describes the behaviour of the balloon's motion?", ////Extreme G-9&10 P.121 Q.115
+          options: [
+            "Newton's third law",
+            "Archimedes principle",
+            "Law of flotation",
+            "Newton's first law",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "27. Which of the following is <strong>NOT TURE</strong> abou work?", // Grade_9 text book note p.75 & 76
+          options: [
+            "Work is done, when a force is applied to an object and the object moves",
+            "all force that is used to move an object does work",
+            "If a force is applied in a different direction than the direction of displacement of the object, no work is done",
+            "Work is a transfer of energy from one object to another through the force",
+          ],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "28. A Constant force of 40N is applied on a mass of 10kg through a distance of 5m. What is the work done by this force?", // Extreme G-9&10 P.135 Q.3
+          options: ["400J", "350J", "200J", "500J"],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "29. When an object of mass m is lifted to a height h from the groung the minimum force required to done a work against gravity is equal to________.", //Extreme G-9&10 Note p.137
+          options: [
+            "mass of the object",
+            "Weight of the object",
+            "force of gravity",
+            "displacement of the object",
+          ],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "30. The third floor of a building is 8m above the ground. How much work is needed to move a 150kg refrigerator to the third floor?", //Extreme G-9&10 p.137 Q.13
+          options: ["10KJ", "20KJ", "15KJ", "12KJ"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "31. A force of 20N is applied on a block of mass 4kg and it displaces the block a distance of 3m from its original position. How much work is done on the block if the cofficient of friction is 0.3? ", //Extreme G-11&12 p.234 Q.9
+          options: ["24J", "18J", "20J", "28J"],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "32. What do we call the energy possessed by an object due to its motion", //Text book G-9&10 p.77 , Note
+          options: [
+            "Potential energy",
+            "Kinetic energy",
+            "Electrical energy",
+            "Heat energy",
+          ],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "33. Which of the following expresses the SI unit of kinetic energy Joule(J) in terms of mass and speed", //Text book G-9&10 p.77 , Note
+          options: [
+            "1J = gm/s",
+            "1J = Kgm/s<sup>2",
+            "1J = gm<sup>2</sup>/s<sup>2</sup>",
+            "1J = Kgm<sup>2</sup>/s<sup>2</sup>",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "34. A pump pumps 3000 liters of water from a well of 20m below the ground. Waht is the work done by the pump?", //Extreme G-9&10 p.138 Q.17
+          options: ["1000KJ", "270KJ", "150KJ", "600KJ"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "35. A Car is traveling at a speed of 20m/s. If the mass of the car is 400kg, what is the kinetic energy of the car?", //Extreme G-9&10 p.143 Q.33
+          options: ["80J", "80KJ", "800KJ", "8KJ"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "36. What do you call the energy possessed by a body because of its height from some reference surface?", //Extreme G-9&10 p.148 note
+          options: [
+            "Gravitational Potential energy",
+            "Kinetic energy",
+            "Electrical energy",
+            "Heat energy",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "37.  Which one of the following statements is <strong>NOT TRUE</strong> about work?", //Extreme G-11&12 P.232 and G-9&10 P.144,137  Note
+          options: [
+            "Work is the product of force and displacement in the direction of the displacement",
+            "When an object of mass m is lifted to a height h from the ground, work is done against gravity",
+            "The work done on an object is equal to the change in its kinetic energy",
+            "Work can be done against friction by lifting an object along vertical line",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "38. What do you call the egergy of a body such as spring because of its condition or configuration", //Extreme G-11&12 p.243 Note
+          options: [
+            "Gravitational Potential energy",
+            "Kinetic energy",
+            "Elastic potential energy",
+            "Heat energy",
+          ],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "39. By what factor does an object's kinetic energy change if its speed is doubled", //Extreme G-9&10 p.143 Q.29
+          options: [
+            "it becomes four times",
+            "it becomes two times",
+            "it becomes 3 times",
+            "the kinetic energy remains the same",
+          ],
+          answer: 0,
+          video: "",
+        },
 
-  ]
-</script>
-<script src="quize-engine.js"></script>
-</body>
+        {
+          q: "40. A car of mass 1500kg is travelling at a uniform velocity of 30m/s due east. The driver applies the brakes to slow down the car to a velocity of 10m/s due east. What is the work ddone in slowing down the car?", //Extreme G-11&12 p.242  Q.33 UEE:2007
+          options: ["400KJ", "600KJ", "750KJ", "300KJ"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "41. The sum of kinetic energy and potential energy is:-", // text book G-9&10 P.80 Note
+          options: [
+            "Gravitational Potential energy",
+            "apparent Kinetic energy",
+            "Elastic potential energy",
+            "Mechanical energy",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "42. The rate of doing work is called______.", //Extreme G-9&10 P.155 , Note
+          options: ["Energy", "Friction", "Power", "Collision"],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "43. A 1000kg car accelerates uniformly from 10m/s to 30m/s in 2sec. what is the average power developed by the car", //Extreme G-9&10 P.157 , Q.68
+          options: [
+            "2 x 10<sup>2</sup>W",
+            "2 x 10<sup>3</sup>W",
+            "2 x 10<sup>3</sup>W",
+            "2 x 10<sup>5</sup>W",
+          ],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "44. A car is travelling along a straight level road ar 20m/s against a force of 3000N. What power form its engine is needed?", //Extreme G-9&10 P.157 , Q.69
+          options: ["20KW", "40KW", "60KW", "80KW"],
+          answer: 2,
+          video: "",
+        },
+        {
+          q: "45. A nurse pushes a patient in a wheelchair for a 100m doing 400J of work in the process. What is the average force did the nurce exert in moving the patient?", //Extreme G-9&10 P.158 , Q.76
+          options: ["10N", "4N", "40N", "20N"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "46. Which of the following statement is true about the change in gravitational potential energy?", //Extreme G-9&10 P.166 , Q.102
+          options: [
+            "It depends only on the initial and final height",
+            "It is positive because mass and gravity are positive",
+            "It depends on the height were the body is placed",
+            "It depends on the path of motion of the body",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "47. An automiblie moving at 30km/h can stop in 8m. If the same automobile is moving at 60km/h, what will be its stopping distance?", //Extreme G-11&12 P.266 , Q.108
+          options: ["8m", "16m", "24m", "32"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "48. A 3kg body is dropped from the top of a tower of height 135m. The kinetic energy of the body after 3sec is____.", //Extreme G-11&12 P.269 , Q.121
+          options: ["950J", "1150J", "10J", "1350J"],
+          answer: 3,
+          video: "",
+        },
+        {
+          q: "49. The energy required to accelerate a car from the rest to 10m/s is E. what energy is required to accelerate the car from 10m/s to 20m/s", ////Extreme G-11&12 P.164 , Q.100
+          options: ["E", "3E", "5E", "7E"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "50. A pump is required to lift 800kg of water per minute from a well 14m deep and eject it with a speed of 18m/s. what is the power out put of the pump? ", ////Extreme G-11&12 P.257 , Q.68
+          options: ["4KW", "8KW", "16KW", "20KW"],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "51. Ten liter of water per second is lifted from a well through 10m and delivered with a velocity of 10m/s. Then the power of the motor is______", //Extreme G-11&12 P.164 , Q.101
+          options: ["1KW", "1.5KW", "2KW", "2.5KW"],
+          answer: 1,
+          video: "",
+        },
+        {
+          q: "52. Suppose you lifted a load from the ground and carried it hen you walked for some distance on a level floor at constant velocity. The work you did on the load is:-",
+          options: [
+            "when you were lifting it up",
+            "when you were walking",
+            "proportional to the distance you walked",
+            "proportional to the time you carried it",
+          ],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "53. ",
+          options: [],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "54. ",
+          options: [],
+          answer: 0,
+          video: "",
+        },
+        {
+          q: "55. ",
+          options: [],
+          answer: 0,
+          video: "",
+        },
+      ];
+    </script>
+    <script src="quize-engine.js"></script>
+  </body>
 </html>

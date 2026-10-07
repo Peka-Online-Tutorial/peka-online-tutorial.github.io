@@ -1,372 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peka Online Tutorial Official Webpage</title>
-    
+
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #d7ccc8; /* Soft beige background */
-            color: #333;
+      /* General Styles */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #d7ccc8; /* Soft beige background */
+        color: #333;
+      }
+
+      /* Main Header Box */
+      .main-header {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 2.1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 50px;
+      }
+
+      /* Flex Container for Image and Buttons */
+      .content-wrapper {
+        display: flex;
+        flex-wrap: wrap; /* Stacks items on mobile */
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .image-side {
+        flex: 1;
+        min-width: 300px;
+      }
+      .image-side img {
+        width: 105%;
+        border-radius: 18px;
+      }
+
+      .button-side {
+        flex: 1;
+        min-width: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2x2 grid */
+        gap: 20px;
+        align-items: right;
+      }
+
+      /* Call to Action Text */
+      .cta-text {
+        font-weight: bold;
+        color: #5c6bc0;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+
+      /* Buttons */
+      .but {
+        padding: 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        font-weight: bold;
+      }
+      .but:hover {
+        transform: scale(1.05);
+      }
+
+      .register {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+        color: #fff;
+      }
+      .exam {
+        background: linear-gradient(135deg, #d3a3c9, #eb9d9d);
+        color: #4a148c;
+      }
+      .about {
+        background: #004d40;
+        color: white;
+      }
+      .nots {
+        background: linear-gradient(135deg, #fb8c00, #ffcc80);
+        color: #5d4037;
+      }
+
+      /* Footer Banner */
+      .footer-banner {
+        margin-top: 40px;
+        background: #00bcd4;
+        color: white;
+        text-align: center;
+
+        /* Change padding to be smaller if you want a tighter fit */
+        padding: 15px 30px;
+
+        /* This makes the box width fit the text */
+        width: fit-content;
+
+        /* This centers the box on the page */
+        margin-left: auto;
+        margin-right: auto;
+
+        border-radius: 50px;
+        font-size: 2.1rem;
+        border: 1px solid #00acc1;
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+        .button-side {
+          grid-template-columns: 1fr;
+        }
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        overflow: auto;
+      }
+
+      .modal-content {
+        background: white;
+        width: 80%;
+        max-width: 900px;
+        margin: 40px auto;
+        border-radius: 15px;
+        overflow: hidden;
+        animation: popup 0.4s ease;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      }
+
+      @keyframes popup {
+        from {
+          opacity: 0;
+          transform: translateY(-40px);
         }
 
-        /* Main Header Box */
-        .main-header {
-            background-color: #1a237e;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 2.1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border-radius: 50px;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        /* Flex Container for Image and Buttons */
-        .content-wrapper {
-            display: flex;
-            flex-wrap: wrap; /* Stacks items on mobile */
-            gap: 30px;
-            justify-content: center;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            
+      .close {
+        float: right;
+        font-size: 35px;
+        padding: 15px 20px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+      }
+
+      .about-header {
+        background: linear-gradient(135deg, #0b5ed7, #0d6efd);
+        padding: 40px;
+        text-align: center;
+        color: white;
+      }
+
+      .about-header h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+      }
+
+      .about-body {
+        padding: 40px;
+        line-height: 1.8;
+        font-size: 18px;
+      }
+
+      .about-body h2 {
+        color: #0b5ed7;
+        margin-top: 25px;
+      }
+
+      .quote {
+        margin-top: 30px;
+        padding: 20px;
+        background: #eef6ff;
+        border-left: 5px solid #0b5ed7;
+        border-radius: 10px;
+        font-style: italic;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        .modal-content {
+          width: 98%;
+          margin: 10px auto;
+          border-radius: 12px;
         }
+      }
 
-        .image-side { flex: 1; min-width:300px;  }
-        .image-side img { width: 105%; border-radius: 18px; }
+      .about-header {
+        padding: 25px 15px;
+      }
 
-        .button-side { 
-            flex: 1; 
-            min-width: 300px; 
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2x2 grid */
-            gap: 20px;
-            align-items: right;
-        }
+      .about-header h1 {
+        font-size: 28px;
+      }
 
-        /* Call to Action Text */
-        .cta-text {
-            font-weight: bold;
-            color: #5c6bc0;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
+      .about-header p {
+        font-size: 16px;
+      }
 
-        /* Buttons */
-        .but {
-            padding: 20px;
-            border: none;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-            font-weight: bold;
-        }
-        .but:hover { transform: scale(1.05); }
+      .about-body {
+        padding: 20px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
 
-        .register { background: linear-gradient(135deg, #43e97b, #38f9d7); color: #fff; }
-        .exam { background: linear-gradient(135deg, #d3a3c9, #eb9d9d); color: #4a148c; }
-        .about { background: #004d40; color: white; }
-        .nots { background: linear-gradient(135deg, #fb8c00, #ffcc80); color: #5d4037; }
+      .about-body h2 {
+        font-size: 25px;
+        margin-top: 25px;
+      }
 
-        /* Footer Banner */
-        .footer-banner {
-           margin-top: 40px;
-    background: #00bcd4;
-    color: white;
-    text-align: center;
-    
-    /* Change padding to be smaller if you want a tighter fit */
-    padding: 15px 30px; 
-    
-    /* This makes the box width fit the text */
-    width: fit-content;
-    
-    /* This centers the box on the page */
-    margin-left: auto;
-    margin-right: auto;
-    
-    border-radius: 50px;
-    font-size: 2.1rem;
-    border: 1px solid #00acc1;
-            
-        }
+      .about-body ul {
+        padding-left: 20px;
+      }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .button-side { grid-template-columns: 1fr; }
-        }.modal{
-display:none;
-position:fixed;
-z-index:9999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-overflow:auto;
-}
+      .about-body li {
+        margin-bottom: 8px;
+      }
 
-.modal-content{
-background:white;
-width:80%;
-max-width:900px;
-margin:40px auto;
-border-radius:15px;
-overflow:hidden;
-animation:popup .4s ease;
-box-shadow:0 0 30px rgba(0,0,0,.4);
-}
-
-@keyframes popup{
-
-from{
-opacity:0;
-transform:translateY(-40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-.close{
-float:right;
-font-size:35px;
-padding:15px 20px;
-cursor:pointer;
-color:white;
-font-weight:bold;
-}
-
-.about-header{
-background:linear-gradient(135deg,#0b5ed7,#0d6efd);
-padding:40px;
-text-align:center;
-color:white;
-}
-
-.about-header h1{
-font-size:40px;
-margin-bottom:10px;
-}
-
-.about-body{
-padding:40px;
-line-height:1.8;
-font-size:18px;
-}
-
-.about-body h2{
-color:#0b5ed7;
-margin-top:25px;
-}
-
-.quote{
-margin-top:30px;
-padding:20px;
-background:#eef6ff;
-border-left:5px solid #0b5ed7;
-border-radius:10px;
-font-style:italic;
-text-align:center;
-}
-@media(max-width:768px){
-
-    .modal-content{
-
-        width:98%;
-        margin:10px auto;
-        border-radius:12px;
-
-    }
-
-}
-
-
-    .about-header{
-
-        padding:25px 15px;
-
-    }
-
-
-    .about-header h1{
-
-        font-size:28px;
-
-    }
-
-
-    .about-header p{
-
-        font-size:16px;
-
-    }
-
-
-    .about-body{
-
-        padding:20px;
-        font-size:16px;
-        line-height:1.6;
-
-    }
-
-
-    .about-body h2{
-
-        font-size:25px;
-        margin-top:25px;
-
-    }
-
-
-    .about-body ul{
-
-        padding-left:20px;
-
-    }
-
-
-    .about-body li{
-
-        margin-bottom:8px;
-
-    }
-
-
-    .quote{
-
-        font-size:16px;
-        padding:15px;
-
-    }
-
-
-    .close{
-
-        font-size:30px;
-        padding:10px 15px;
-
-    }
-
-
+      .quote {
+        font-size: 16px;
+        padding: 15px;
+      }
+      .close {
+        font-size: 30px;
+        padding: 10px 15px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="main-header">WELCOME TO PEKA ONLINE TUTORIAL WEBPAGE</div>
 
     <div class="content-wrapper">
-        <div class="image-side">
-            <img src="img4.jpeg" alt="Student studying">
-        </div>
+      <div class="image-side">
+        <img src="img4.jpeg" alt="Student studying" />
+      </div>
 
-        <div class="button-side">
-            <div style="grid-column: span 2;" class="cta-text">BOOST YOUR ACADEMIC STATUS WITH US.</div>
-            <button onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdR97zxnksY6UKIagXceqC7fHHHyBTISF71smohPzzggdnr0g/viewform?usp=dialog'" class="but register">Register now</button> 
-            <button onclick="window.location.href='Class.html'" class="but exam">Exams</button>
-            <button onclick="window.location.href='about.html'" class="but about">About us</button>
-            <button onclick="window.location.href='notes.html'" class="but nots">Short Nots</button>
+      <div class="button-side">
+        <div style="grid-column: span 2" class="cta-text">
+          BOOST YOUR ACADEMIC STATUS WITH US.
         </div>
+        <button
+          onclick="
+            window.location.href =
+              'https://docs.google.com/forms/d/e/1FAIpQLSdR97zxnksY6UKIagXceqC7fHHHyBTISF71smohPzzggdnr0g/viewform?usp=dialog'
+          "
+          class="but register"
+        >
+          Register now
+        </button>
+        <button onclick="window.location.href = 'Class.html'" class="but exam">
+          Exams
+        </button>
+        <button onclick="window.location.href = 'about.html'" class="but about">
+          About us
+        </button>
+        <button onclick="window.location.href = 'notes.html'" class="but nots">
+          Short Nots
+        </button>
+      </div>
     </div>
 
-    <div class="footer-banner">
-        BE A CHAMPION OF EDUCATION FOR YOUR FUTURE
-    </div>
-<!-- About Us Popup -->
-<div id="aboutModal" class="modal">
-
-    <div class="modal-content">
-
+    <div class="footer-banner">BE A CHAMPION OF EDUCATION FOR YOUR FUTURE</div>
+    <!-- About Us Popup -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
         <span class="close">&times;</span>
 
         <div class="about-header">
-            <h1>Peka Online Tutorial</h1>
-            <p>Empowering Ethiopian Students to Achieve Academic Excellence</p>
+          <h1>Peka Online Tutorial</h1>
+          <p>Empowering Ethiopian Students to Achieve Academic Excellence</p>
         </div>
 
         <div class="about-body">
+          <h2>Who We Are</h2>
 
-            <h2>Who We Are</h2>
+          <p>
+            Welcome to <strong>Peka Online Tutorial</strong>, an online learning
+            platform dedicated to helping Ethiopian high school students succeed
+            in Mathematics, Physics, and Chemistry.
+          </p>
 
-            <p>
-                Welcome to <strong>Peka Online Tutorial</strong>, an online learning
-                platform dedicated to helping Ethiopian high school students succeed
-                in Mathematics, Physics, and Chemistry.
-            </p>
+          <h2>What We Offer</h2>
 
-            <h2>What We Offer</h2>
+          <ul>
+            <li>📘 Thousands of Practice Questions</li>
+            <li>🎥 Detailed Video Solutions</li>
+            <li>👨‍🏫 Live Online Tutorials</li>
+            <li>📝 National Exam Preparation</li>
+            <li>📈 Step-by-Step Learning</li>
+          </ul>
 
-            <ul>
-                <li>📘 Thousands of Practice Questions</li>
-                <li>🎥 Detailed Video Solutions</li>
-                <li>👨‍🏫 Live Online Tutorials</li>
-                <li>📝 National Exam Preparation</li>
-                <li>📈 Step-by-Step Learning</li>
-            </ul>
+          <h2>Our Mission</h2>
 
-            <h2>Our Mission</h2>
+          <p>
+            To provide quality education and help Ethiopian students achieve
+            excellent results in their national examinations.
+          </p>
 
-            <p>
-                To provide quality education and help Ethiopian students achieve
-                excellent results in their national examinations.
-            </p>
-
-            <div class="quote">
-                "Success comes from understanding, practice, and confidence."
-            </div>
-
+          <div class="quote">
+            "Success comes from understanding, practice, and confidence."
+          </div>
         </div>
-
+      </div>
     </div>
+    <script>
+      const modal = document.getElementById("aboutModal");
+      const btn = document.getElementsByClassName("but about")[0];
+      const close = document.querySelector(".close");
 
-</div>
-<script>
-const modal = document.getElementById("aboutModal");
-const btn = document.getElementsByClassName("but about")[0];
-const close = document.querySelector(".close");
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-close.onclick = function () {
-    modal.style.display = "none";
-}
-
-window.onclick = function (event) {
-    if (event.target == modal) {
+      close.onclick = function () {
         modal.style.display = "none";
-    }
-}
+      };
 
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-        modal.style.display = "none";
-    }
-});
-</script>
-</body>
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          modal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
